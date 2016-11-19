@@ -8,6 +8,9 @@ require_relative "TreasureKind.rb"
 class BadConsequence
   
   private_class_method :new
+  
+  @@MAXTREASURES = 10
+  
   def initialize(aText, someLevels, someVisibleTreasures, someHiddenTreasures, 
       someSpecificVisibleTreasures, someSpecificHiddenTreasures, death)
     
@@ -48,6 +51,7 @@ class BadConsequence
   attr_reader :death
   attr_reader :specificVisibleTreasures
   attr_reader :specificHiddenTreasures
+  attr_reader :MAXTREASURES
   
   def to_s
     if @death
@@ -62,6 +66,11 @@ class BadConsequence
     "\nNumber of Visible Treasures = #{@nVisibleTreasures}" +
     "\nNumber of Hidden Treasures = #{@nHiddenTreasures}" + 
     "\nDeath = #{muerte}"
+  end
+  
+  def isEmpty()
+    (@nVisibleTreasures == 0 && @nHiddenTreasures == 0) || 
+    (@specificVisibleTreasures.empty? && @specificHiddenTreasures.empty?)
   end
   
 end

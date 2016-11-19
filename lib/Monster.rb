@@ -4,7 +4,7 @@
 
 #encoding: utf-8 
 require_relative "Prize.rb"
-require_relative "BadConsequence"
+require_relative "BadConsequence.rb"
 
 class Monster
   def initialize(name, level, bc, prize)
@@ -19,6 +19,14 @@ class Monster
   attr_reader :combatLevel
   attr_reader :prize
   attr_reader :badConsequence
+  
+  def getLevelsGained()
+    @prize.level
+  end
+  
+  def getTreasuresGained()
+    @prize.treasures
+  end
   
   def to_s
     "\n\nMonster:" +
